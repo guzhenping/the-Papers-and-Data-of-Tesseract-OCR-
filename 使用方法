@@ -1,0 +1,35 @@
+# 使用方法
+---------------------
+这些资料都很多，我就列一个Windows的，如有其它需要联系我
+
+
+# Windows
+--------------------------------------
+也是粘贴别人的，来自百度百科
+
+命令行：
+5.在Windows平台下调用“tesseract.exe”测试：
+1)在google中下载tesseract-ocr-setup-3.01.exe和chi_sim.traineddata.gz中文字库。
+2)安装完毕，将中文字库放入安装目录的tessdata中。
+3)在命令行中操作，进入安装目录，在该目录中事先放入要测试的图片，比如：6.tif；
+执行识别图像的命令格式为：
+tesseract .exe [-l lang]
+Imagename: 需要识别的图片文件名
+outputname: 输出结果txt文件名，用来存放识别出来的文字结果
+lang: 使用的文字字库，根据要识别的文字类型来选择。
+例如：输入命令：tesseract.exe 6.tif 6 –l chi_sim
+
+汉字图片识别方法：tesseract.exe 4.bmp out4 -l chi_sim -psm 7
+英文数字图片识别方法： tesseract.exe 4.bmp out4 -l eng -psm 7
+4.bmp为输入图片文件名，out4为识别结果的存放区out4.txt。 这两个名字都是由用户自己设定。
+
+
+源码：
+6.在VC2008平台下调用源码测试：
+1)将中文字库放入安装目录的tessdata中。
+2)配置环境变量TESSDATA_PREFIX = “C:\Program Files\Tesseract-OCR\” 即tessdata的目录，在源码中会到这个路径下查找相应的字库文件用来识别。
+3)将下载的VC2008工程文件夹放到源码文件夹目录下。打开sln工程，设置“tesseract”为启动工程。
+4)打开“tesseract.cpp”文件，配置参数
+lang：选择的字库文件名
+image：输入图片路径
+output：输出结果文件路径
